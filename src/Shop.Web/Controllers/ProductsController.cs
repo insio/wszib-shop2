@@ -63,7 +63,7 @@ namespace Shop.Web.Controllers
             return View(viewModel);
         }
 
-        [HttpPut("{id}/update")]
+        [HttpPost("{id}/update")]
         public IActionResult Update(Guid id, AddOrUpdateProductViewModel viewModel)
         {
             if (!ModelState.IsValid)
