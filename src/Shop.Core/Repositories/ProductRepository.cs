@@ -22,5 +22,11 @@ namespace Shop.Core.Repositories
 
         public void Add(Product product)
             => _products.Add(product);
+        //in memory - no need to udate
+        public void Update(Product product)
+        {
+
+        }
+
     }
 }

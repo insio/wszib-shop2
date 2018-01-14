@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Core.Domain;
+using Shop.Core.DTO;
 using Shop.Core.Repositories;
 using Shop.Core.Services;
 using Shop.Web.Models;
@@ -70,7 +71,16 @@ namespace Shop.Web.Controllers
             {
                 return View(viewModel);
             }
-           // _productService.Add(viewModel.Name, viewModel.Category, viewModel.Price);
+            _productService.Update(new ProductDto
+            {
+
+
+                Id = viewModel.Id,
+                Name = viewModel.Name,
+                Category = viewModel.Category,
+                Price = viewModel.Price
+
+            });
 
             return RedirectToAction(nameof(Index));
         }

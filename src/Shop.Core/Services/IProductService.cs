@@ -11,5 +11,7 @@ namespace Shop.Core.Services
 
         IEnumerable<ProductDto> GetAll();
         void Add(string name, string category, decimal price);
+
+        void Update(ProductDto product);
     }
 }
