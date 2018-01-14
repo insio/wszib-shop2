@@ -16,7 +16,19 @@ namespace Shop.Core.Services
             _productRepository = productRepository;
         }
 
-        public IEnumerable<ProductDto> GetAll()
+        public ProductDto Get(Guid id)
+        {
+            var product = _productRepository.Get(id);
+            return product == null ? null : new ProductDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Category = product.Category,
+                Price = product.Price
+
+            };
+        }
+            public IEnumerable<ProductDto> GetAll()
             => _productRepository
                 .GetAll()
                 .Select(p => new ProductDto
@@ -32,5 +44,9 @@ namespace Shop.Core.Services
             var product = new Product(name, category, price);
             _productRepository.Add(product);
         }
+
+      
+
+        
     }
 }
